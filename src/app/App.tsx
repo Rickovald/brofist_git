@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // COMPONENT IMPORTS
-import { UserRepository } from 'pages/UserRepository/UserRepository';
+import { UserRepositories } from 'pages/UserRepositories/UserRepositories';
 import { Footer } from 'widgets/Footer';
 import { Navigation } from 'widgets/Navigation';
 import { Error404 } from 'pages/Error404/Error404';
@@ -28,7 +28,13 @@ const App = () => {
                                 element={<Main />}
                             />
                             {/* COMPONENT ROUTES */}
-                            <Route path='/:username' element={<UserRepository />} />
+                            {/*
+                                //! В тз написано что нужно http://app.app/{username}
+                                //! Но в случае вероятного расширения так лучше не делать
+                                //! потому что любая несуществующая ссылка будет считаться
+                                //! За страницу чьего-то репозитория, поэтому я выбрал /repos/:username
+                            */}
+                            <Route path='/repos/:username' element={<UserRepositories />} />
                             <Route path='*' element={<Error404 />} />
                         </Routes>
                         <Footer />

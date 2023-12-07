@@ -4,7 +4,7 @@ import s from './error404.module.sass';
 export const Error404: FC = (): ReactElement => {
     return (
         <div className={s.root}>
-            Error404
+            Ой, а такой странички не существует :(
         </div>
     );
 };

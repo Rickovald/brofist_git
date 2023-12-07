@@ -26,23 +26,23 @@ module.exports = function (plop) {
             },
             {
                 type: 'append',
-                path: 'src/App.tsx',
+                path: 'src/app/App.tsx',
                 pattern: /(\/\/ COMPONENT IMPORTS)/g,
                 template: 'import { {{properCase title}} } from \'pages/{{properCase title}}/{{properCase title}}\';'
             },
             {
                 type: 'append',
-                path: 'src/App.tsx',
+                path: 'src/app/App.tsx',
                 pattern: /\{\/\* COMPONENT ROUTES \*\/\}$/gm,
-                template: '                    <Route path=\'/{{snakeCase title}}\' element={<{{properCase title}} />}/>'
+                template: '                        <Route path=\'/{{snakeCase title}}\' element={<{{properCase title}} />}/>'
             },
             {
                 type: 'append',
-                path: 'src/Components/Navigation/Navigation.tsx',
+                path: 'src/widgets/Navigation/Navigation.tsx',
                 pattern: /\{\/\* COMPONENT LINKS \*\/\}$/gm,
                 template: '                    <NavLink className={s.link} to=\'{{snakeCase title}}\'>{{camelCase title}}</NavLink>'
             }
-        ]   
+        ]
     });
     plop.setGenerator('Feature', {
         description: 'Generate new tsx react FC feature',

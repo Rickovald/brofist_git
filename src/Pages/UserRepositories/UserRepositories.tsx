@@ -20,7 +20,7 @@ export const UserRepositories: FC = (): ReactElement => {
 
     const config = {
         headers: {
-            Authorization: 'Bearer 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'
+            Authorization: 'Bearer <your token>'
         }
     };
 

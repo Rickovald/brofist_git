@@ -1,0 +1,36 @@
+@use "src/shared/mixins" as *
+
+.root
+	// position: fixed
+	height: 75px
+	display: flex
+	align-items: center
+	justify-content: center
+	z-index: 2
+	bottom: 0
+	left: 0
+	right: 0
+	text-align: center
+	color: $LightTextColor
+	background: $BackgroundElements
+
+.social
+	position: absolute
+	right: 5vw
+	display: flex
+	gap: 10px
+.href
+	display: block
+.icon
+	width: 30px
+	height: 30px
+	
+@media screen and ( max-width: 1024px )
+	.social
+		padding-right: calcSize(5vw, 2vw, 1024, 768)
+@media screen and ( max-width: 768px )
+	.social
+		padding-right: calcSize(20px, 5px, 768, 450px)
+@media screen and ( max-width: 450px )
+	.social
+		padding-right: 5px

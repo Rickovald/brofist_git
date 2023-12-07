@@ -1,0 +1,32 @@
+/**
+ * Пропорционально экрану уменьшает размер элемента.
+ * ! НЕ ДЕЛИ НА НОЛЬ И НЕ ДЕЛИМ НА НОЛЬ БУДЕШЬ
+ * @param {number} $maxSize - Максимальный (изначальный) размер элемента.
+ * @param {number} $minSize - Минимальный (конечный) размер элемента.
+ * @param {number} $maxScreen - Максимальный (изначальный) размер экрана.
+ * @param {number} $minScreen - Минимальный (конечный) размер экрпана.
+ */
+
+@function toRem($value)
+    $remValue: calc($value / 16) + rem
+    @return $remValue
+
+@function calcSize($maxSize, $minSize, $maxScreen, $minScreen)
+    $calc: 0px
+    @if ($maxScreen != $minScreen)
+        $calc: calc(#{$minSize}px + (#{$maxSize} - #{$minSize}) * ( (100vw - #{$minScreen}px) / (#{$maxScreen} - #{$minScreen})))
+
+    @return $calc
+
+@function calcSizeH($maxSize, $minSize, $maxScreen, $minScreen)
+    $calc: 0px
+    @if ($maxScreen != $minScreen)
+        $calc: calc(#{$minSize}px + (#{$maxSize} - #{$minSize}) * ( (100vh - #{$minScreen}px) / (#{$maxScreen} - #{$minScreen})))
+
+    @return $calc
+
+@function calcSizePercent($maxSize, $minSize, $maxScreen, $minScreen)
+    $calc: 0px
+    @if ($maxScreen != $minScreen)
+        $calc: calc(percentage($minSize) / 100 + (#{$maxSize} - #{$minSize}) * ( (100vw - #{$minScreen}px) / (#{$maxScreen} - #{$minScreen})))
+    @return $calc

@@ -1,0 +1,29 @@
+@use "src/shared/mixins" as *
+
+.root
+	height: 50px
+	@include PagePadding
+	background: $BackgroundElements
+	color: $LightTextColor
+
+.wrapper
+	width: 100%
+	max-width: 1500px
+	margin: 0 auto
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+.links
+	display: flex
+	// gap: 20px
+
+.link
+	color: $LightTextColor
+	height: 50px
+	padding: 0 20px
+	transition: $FastTransition
+	@include ButtonFont($font-size: 16px, $font-weight: normal, $text-transform: inherit)
+	&:hover
+		color: $SecondAccent
+		// background: $BackgroundCard

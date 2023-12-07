@@ -17,10 +17,9 @@ interface Repository {
 export const UserRepositories: FC = (): ReactElement => {
     const [isStarred, switchStarred] = useState<boolean>(false);
     const params = useParams();
-
     const config = {
         headers: {
-            Authorization: 'Bearer <your token>'
+            Authorization: `Bearer ${process.env.REACT_APP_GIT_TOKEN}`
         }
     };
 

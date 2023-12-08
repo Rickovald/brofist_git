@@ -2,11 +2,9 @@
 @use "src/app/functions" as *
 
 .userRepository
-	width: toRem(700)
-	margin-right: auto
+	width: toRem(800)
 
 .info
-	width: toRem(400)
 	display: flex
 	justify-content: space-between
 
@@ -25,3 +23,8 @@
 
 .branches
 	margin-left: toRem(20)
+
+
+@media screen and (max-width: 550px)
+	.userRepository
+		width: toRem(1300)

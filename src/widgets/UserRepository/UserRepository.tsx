@@ -3,16 +3,17 @@ import { IUserRepository } from 'shared/interfaces';
 import s from './userRepository.module.sass';
 import { Link } from 'react-router-dom';
 import { useGetBranches } from 'shared/hooks/useQuery';
+import { Error, Loading } from 'shared/components';
 
 export const UserRepository: FC<IUserRepository> = ({ repo, username }): ReactElement => {
     const { branches, isLoading: isBranchesLoading, isError: isBranchesError } = useGetBranches(username!, repo);
 
     if (isBranchesLoading) {
-        return <div>Loading...</div>;
+        return <Loading />;
     }
 
     if (isBranchesError) {
-        return <div>Error loading data</div>;
+        return <Error data={'data'}/>;
     }
 
     return (

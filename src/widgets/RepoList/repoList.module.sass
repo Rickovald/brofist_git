@@ -2,8 +2,7 @@
 @use "src/app/functions" as *
 
 .repos_wrap
-	width: toRem(500)
-	margin-right: auto
+	width: toRem(800)
 
 .repos
 	gap: 10px
@@ -11,9 +10,9 @@
 	flex-direction: column
 
 .repo
+	display: block
 	background: #ccc
 	padding: 10px 20px
-	width: toRem(500)
 
 .repos_head
 	display: flex
@@ -29,3 +28,13 @@
 	&:hover
 		color: $SecondAccent
 		transition: $FastTransition
+
+.buttons
+	display: flex
+	gap: 10px
+
+
+
+@media screen and (max-width: 550px)
+	.repos_wrap
+		width: toRem(1300)

@@ -30,20 +30,20 @@ main
 h1
 	font-size: 2em
 	margin: 0.67em 0
+h2 
+	font-size: 1.8em
+a, p, div, span
+	font-size: 1em
+a
+	color: black
+	text-decoration: none
+	background-color: transparent
 
 hr
 	box-sizing: content-box
 	height: 0
 	overflow: visible
 
-pre
-	font-family: monospace, monospace
-	font-size: 1em
-
-a
-	color: black
-	text-decoration: none
-	background-color: transparent
 
 abbr[title]
 	border-bottom: none
@@ -146,3 +146,23 @@ template
 
 [hidden]
 	display: none
+
+@media screen and (max-width: 1024px)
+	h1
+		font-size: 2.2em
+		margin: 0.67em 0
+	h2 
+		font-size: 1.8em
+	a, p, div, span
+		font-size: 1.1em
+
+
+@media screen and (max-width: 550px)
+	h1
+		text-align: center
+		font-size: 2.2em
+		margin: 0.67em 0
+	h2 
+		font-size: 1.8em
+	a, p, div, span
+		font-size: 1.2em

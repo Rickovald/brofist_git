@@ -1,35 +1,17 @@
 import { FC, ReactElement } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { Repository } from 'shared/interfaces';
-import { gitTokenConfig } from 'shared/configs';
+import { IUserRepository } from 'shared/interfaces';
 import s from './userRepository.module.sass';
 import { Link } from 'react-router-dom';
+import { useGetBranches } from 'shared/hooks/useQuery';
 
-interface Branch {
-    name: string;
-};
+export const UserRepository: FC<IUserRepository> = ({ repo, username }): ReactElement => {
+    const { branches, isLoading: isBranchesLoading, isError: isBranchesError } = useGetBranches(username!, repo);
 
-interface UserRepo {
-    repo: string;
-    username: string | undefined;
-}
-
-export const UserRepository: FC<UserRepo> = ({ repo, username }): ReactElement => {
-    const repositoryQuery = useQuery<Repository>({
-        queryKey: ['repository'],
-        queryFn: async () => axios.get(`https://api.github.com/repos/${username}/${repo}`, gitTokenConfig).then((response) => response.data)
-    });
-    const { data: branchesQuery, isLoading: branchesLoading, isError: branchesError } = useQuery<Branch[]>({
-        queryKey: ['branches'],
-        queryFn: async () => axios.get(`https://api.github.com/repos/${username}/${repo}/branches`, gitTokenConfig).then((response) => response.data)
-    });
-
-    if (repositoryQuery.isLoading || branchesLoading) {
+    if (isBranchesLoading) {
         return <div>Loading...</div>;
     }
 
-    if (repositoryQuery.error || branchesError) {
+    if (isBranchesError) {
         return <div>Error loading data</div>;
     }
 
@@ -44,7 +26,7 @@ export const UserRepository: FC<UserRepo> = ({ repo, username }): ReactElement =
 
             <h2 className={s.branches_header}>Branches:</h2>
             <div className={s.branches}>
-                {branchesQuery!.map((branch) => (
+                {branches!.map((branch) => (
                     <p key={branch.name}>{branch.name}</p>
                 ))}
             </div>

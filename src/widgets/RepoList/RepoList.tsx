@@ -1,12 +1,7 @@
 import { FC, ReactElement, useState } from 'react';
 import s from './repoList.module.sass';
-import { Repository } from 'shared/interfaces';
+import { IRepoList } from 'shared/interfaces';
 import { NavLink } from 'react-router-dom';
-interface IRepoList {
-    repositories: Repository[] | undefined;
-    starredRepositories: Repository[] | undefined;
-    username: string | undefined;
-}
 
 export const RepoList: FC<IRepoList> = ({
     repositories,
@@ -15,11 +10,6 @@ export const RepoList: FC<IRepoList> = ({
 }): ReactElement => {
     const [isStarred, switchStarred] = useState<boolean>(false);
     const [pageNumber, setPageNumber] = useState<number>(1);
-    console.log(
-        starredRepositories?.length &&
-            pageNumber * 10 >= starredRepositories.length
-    );
-
     return (
         <div className={s.repos_wrap}>
             <div className={s.repos_head}>
@@ -48,8 +38,8 @@ export const RepoList: FC<IRepoList> = ({
                         ))
                     )
                     : (
-                        <div>
-                            <div>
+                        <div className={s.repos}>
+                            <div className={s.buttons}>
                                 <button
                                     disabled={
                                         !starredRepositories || pageNumber <= 1

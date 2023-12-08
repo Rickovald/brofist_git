@@ -1,0 +1,17 @@
+@use "app/shared/mixins" as *
+@use "app/shared/functions" as *
+
+.userRepository
+	@include PageWrapper
+	@include FlexWrapper
+	align-items: flex-start
+
+.starSwitch
+	user-select: none
+
+.info
+	width: toRem(300)
+
+.info_img
+	max-width: 100px
+	border-radius: 50%

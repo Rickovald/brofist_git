@@ -6,6 +6,11 @@ import { UserRepository } from 'widgets/UserRepository';
 import { useGetUserData, useGetUserRepositories, useGetUserStarRepositories } from 'shared/hooks/useQuery';
 import { Error, Loading } from 'shared/components';
 
+/**
+ * Renders the user repositories component.
+ *
+ * @return {ReactElement} The rendered user repositories component.
+ */
 export const UserRepositories: FC = (): ReactElement => {
     const params = useParams();
     const [queryParameters] = useSearchParams();

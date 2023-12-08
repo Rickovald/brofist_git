@@ -7,6 +7,7 @@ import { Navigation } from 'widgets/Navigation';
 import { Error404 } from 'pages/Error404';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Main } from 'pages/Main';
+
 const App = () => {
     const queryClient = new QueryClient();
 

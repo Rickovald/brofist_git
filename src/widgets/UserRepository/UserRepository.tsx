@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom';
 import { useGetBranches } from 'shared/hooks/useQuery';
 import { Error, Loading } from 'shared/components';
 
+/**
+ * Renders a user repository component.
+ *
+ * @param {IUserRepository} repo - The repository object.
+ * @param {string} username - The username of the repository owner.
+ * @return {ReactElement} The rendered user repository component.
+ */
 export const UserRepository: FC<IUserRepository> = ({ repo, username }): ReactElement => {
     const { branches, isLoading: isBranchesLoading, isError: isBranchesError } = useGetBranches(username!, repo);
 

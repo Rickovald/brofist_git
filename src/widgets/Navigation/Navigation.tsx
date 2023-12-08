@@ -9,7 +9,6 @@ export const Navigation: FC = (): ReactElement => {
                 <div className={s.links}>
                     <NavLink className={s.link} to='/'>Main</NavLink>
                     {/* COMPONENT LINKS */}
-                    {/* <NavLink className={s.link} to='/'>userRepository</NavLink> */}
                 </div>
             </div>
         </div>

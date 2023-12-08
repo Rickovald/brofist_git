@@ -1,0 +1,31 @@
+@use "src/shared/mixins" as *
+@use "src/shared/functions" as *
+
+.repos_wrap
+	width: toRem(500)
+	margin-right: auto
+
+.repos
+	gap: 10px
+	display: flex
+	flex-direction: column
+
+.repo
+	background: #ccc
+	padding: 10px 20px
+	width: toRem(500)
+
+.repos_head
+	display: flex
+	justify-content: space-between
+	align-items: center
+	margin-bottom: 10px
+
+.starSwitch
+	font-weight: bold
+	color: $MainAccent
+	cursor: pointer
+	transition: $FastTransition
+	&:hover
+		color: $SecondAccent
+		transition: $FastTransition

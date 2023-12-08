@@ -3,7 +3,6 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // COMPONENT IMPORTS
 import { UserRepositories } from 'pages/UserRepositories/UserRepositories';
-import { Footer } from 'widgets/Footer';
 import { Navigation } from 'widgets/Navigation';
 import { Error404 } from 'pages/Error404/Error404';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -35,9 +34,9 @@ const App = () => {
                                 //! За страницу чьего-то репозитория, поэтому я выбрал /repos/:username
                             */}
                             <Route path='/repos/:username' element={<UserRepositories />} />
+                            <Route path='/repos/:username?repo' element={<UserRepositories />} />
                             <Route path='*' element={<Error404 />} />
                         </Routes>
-                        <Footer />
                     </Router>
                 </QueryClientProvider>
             </HelmetProvider>

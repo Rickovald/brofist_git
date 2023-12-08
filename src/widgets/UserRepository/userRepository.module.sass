@@ -1,4 +1,27 @@
 @use "src/shared/mixins" as *
+@use "src/shared/functions" as *
 
 .userRepository
-    display: block
+	width: toRem(700)
+	margin-right: auto
+
+.info
+	width: toRem(400)
+	display: flex
+	justify-content: space-between
+
+.authorLink, .back
+	font-weight: bold
+	color: $MainAccent
+	cursor: pointer
+	transition: $FastTransition
+	margin-right: toRem(40)
+	&:hover
+		color: $SecondAccent
+		transition: $FastTransition
+
+.branches_header
+	margin: toRem(20) 0
+
+.branches
+	margin-left: toRem(20)

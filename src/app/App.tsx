@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // COMPONENT IMPORTS
-import { UserRepositories } from 'pages/UserRepositories/UserRepositories';
+import { UserRepositories } from 'pages/UserRepositories';
 import { Navigation } from 'widgets/Navigation';
-import { Error404 } from 'pages/Error404/Error404';
+import { Error404 } from 'pages/Error404';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Main } from 'pages/Main';
 const App = () => {

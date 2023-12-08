@@ -36,50 +36,53 @@ export const RepoList: FC<IRepoList> = ({
             </div>
             <div className={s.repos}>
                 {!isStarred
-                    ? repositories?.map((repo: any) => (
-                        <NavLink
-                            to={`/repos/${username}?repo=${repo.name}&owner=${repo.owner.login}`}
-                            className={s.repo}
-                            key={repo.id}
-                        >
-                            <p>{repo.name}</p>
-                        </NavLink>
-                    ))
-                    : starredRepositories
-                        ?.slice((pageNumber - 1) * 10, pageNumber * 10)
-                        .map((repo: any) => (
+                    ? (
+                        repositories?.map((repo: any) => (
                             <NavLink
                                 to={`/repos/${username}?repo=${repo.name}&owner=${repo.owner.login}`}
                                 className={s.repo}
                                 key={repo.id}
                             >
-                                <p>Название: {repo.owner.login}</p>
-                                <p>Название: {repo.name}</p>
+                                <p>{repo.name}</p>
                             </NavLink>
-                        ))}
-                {isStarred
-                    ? (
-                        <div>
-                            <button
-                                disabled={!starredRepositories || pageNumber <= 1}
-                                onClick={() => setPageNumber(pageNumber - 1)}
-                            >
-                            Previous
-                            </button>
-
-                            <button
-                                disabled={
-                                    !starredRepositories ||
-                                pageNumber * 10 >= starredRepositories.length
-                                }
-                                onClick={() => setPageNumber(pageNumber + 1)}
-                            >
-                            Next
-                            </button>
-                        </div>
+                        ))
                     )
                     : (
-                        ''
+                        <div>
+                            <div>
+                                <button
+                                    disabled={
+                                        !starredRepositories || pageNumber <= 1
+                                    }
+                                    onClick={() => setPageNumber(pageNumber - 1)}
+                                >
+                                Previous
+                                </button>
+
+                                <button
+                                    disabled={
+                                        !starredRepositories ||
+                                    pageNumber * 10 >=
+                                        starredRepositories.length
+                                    }
+                                    onClick={() => setPageNumber(pageNumber + 1)}
+                                >
+                                Next
+                                </button>
+                            </div>
+                            {starredRepositories
+                                ?.slice((pageNumber - 1) * 10, pageNumber * 10)
+                                .map((repo: any) => (
+                                    <NavLink
+                                        to={`/repos/${username}?repo=${repo.name}&owner=${repo.owner.login}`}
+                                        className={s.repo}
+                                        key={repo.id}
+                                    >
+                                        <p>Название: {repo.owner.login}</p>
+                                        <p>Название: {repo.name}</p>
+                                    </NavLink>
+                                ))}
+                        </div>
                     )}
             </div>
         </div>
